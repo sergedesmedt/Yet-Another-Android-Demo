@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="views_available">
+        <item>Graphics Single</item>
+        <item>Graphics Multi</item>
+        <item>History Multi</item>
+        <item>Dialog</item>
+    </string-array>    
+</resources>
