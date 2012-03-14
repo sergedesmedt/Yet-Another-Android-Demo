@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, YetAnotherTouchVisualizerActivity!</string>
     <string name="app_name">YetAnotherTouchVisualizer</string>
+    <string name="config">Configure</string>
 </resources>

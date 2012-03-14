@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -82,6 +83,16 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 	@Override
 	public boolean onLongClick(View v) {
 		return false;
+	}
+	
+	public void setConfigBundleForView(Bundle configBundle)
+	{
+		setProcessTouchEvent(configBundle.getBoolean("PROCESS_TOUCHEVENT"));
+	}
+	
+	private void setProcessTouchEvent(boolean process)
+	{
+		processOnTouchEvent = process;
 	}
     
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;

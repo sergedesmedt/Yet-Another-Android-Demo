@@ -21,5 +21,7 @@
         </activity>
         <activity android:name="TouchVisualizerSingleTouchDialogActivity">
         </activity>
+        <activity android:name="TouchVisualizerSingleTouchGraphicConfigActivity">
+        </activity>
     </application>
 </manifest>
