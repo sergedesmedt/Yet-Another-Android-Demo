@@ -31,7 +31,15 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
 	    switch (item.getItemId()) {
 	        case R.id.mnu_single_graphic_config:
 	    		Intent myIntent = new Intent(TouchVisualizerSingleTouchGraphicActivity.this, TouchVisualizerSingleTouchGraphicConfigActivity.class);
-	    		startActivityForResult(myIntent, 0);
+	    	    
+	    		Bundle b = new Bundle();
+	    	    b.putBoolean("PROCESS_TOUCHEVENT", vw.getHandleTouchEvent());
+	    	    b.putBoolean("PROCESS_RETURNVALUE", vw.getReturnValue());
+	    	    b.putFloat("VALUE_PRESSUREAMP", vw.getPressureAmplification());
+
+	    	    myIntent.putExtras(b);
+
+	    	    startActivityForResult(myIntent, 0);
 	    		return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -40,7 +48,12 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent){
-    	vw.setConfigBundleForView(intent.getExtras());
+    	Bundle config = intent.getExtras();
+    	
+    	vw.setHandleTouchEvent(config.getBoolean("PROCESS_TOUCHEVENT"));
+    	vw.setReturnValue(config.getBoolean("PROCESS_RETURNVALUE"));
+    	vw.setPressureAmplification(config.getFloat("VALUE_PRESSUREAMP"));
+
     }
     
     TouchVisualizerSingleTouchGraphicView vw;

@@ -42,13 +42,13 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     public boolean onTouchEvent(MotionEvent event) {
     	if(!processOnTouchEvent)
     	{
-    		super.onTouchEvent(event);
+    		return false;
     	}
+		super.onTouchEvent(event);
 
-    	boolean result = processOnTouchEvent;
+    	boolean result = returnValue;
     	int action = event.getAction();
-    	pressure = event.getPressure();
-    	
+    	pressure = event.getPressure();   	
 
 		switch (action) {
     	case MotionEvent.ACTION_DOWN:
@@ -85,16 +85,36 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 		return false;
 	}
 	
-	public void setConfigBundleForView(Bundle configBundle)
-	{
-		setProcessTouchEvent(configBundle.getBoolean("PROCESS_TOUCHEVENT"));
-	}
-	
-	private void setProcessTouchEvent(boolean process)
+	public void setHandleTouchEvent(boolean process)
 	{
 		processOnTouchEvent = process;
 	}
-    
+	
+	public boolean getHandleTouchEvent()
+	{
+		return processOnTouchEvent;
+	}
+	
+	public void setReturnValue(boolean value)
+	{
+		returnValue = value;
+	}
+	
+	public boolean getReturnValue()
+	{
+		return returnValue;
+	}
+	
+	public void setPressureAmplification(float value)
+	{
+		pressure = value;
+	}
+	
+	public float getPressureAmplification()
+	{
+		return pressure;
+	}
+   
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
     private float pressureRingOffset = (float) DefaultValues.PressureRingOffset;
     private float pressureAmplificaton = (float) DefaultValues.PressureAmplificaton;
@@ -106,4 +126,5 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     
     private boolean leftEdge = false;
     private boolean processOnTouchEvent = true;
+    private boolean returnValue = true;
 }

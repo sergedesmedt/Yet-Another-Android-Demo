@@ -4,5 +4,8 @@
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    
+    <CheckBox android:text="Handle touch events" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxHandleTouchEvents" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Return true/false" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxReturnValue" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <TextView android:text="Pressure amplification" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content"></TextView>
+    <EditText android:id="@+id/editPressureAmplification" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"></EditText>    
 </LinearLayout>
