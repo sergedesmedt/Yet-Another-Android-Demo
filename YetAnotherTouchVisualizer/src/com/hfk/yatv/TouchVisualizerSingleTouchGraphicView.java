@@ -31,41 +31,57 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
             canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplificaton * pressure), paint);
     	}
     	
-    	if(leftEdge)
-    	{
-            paint.setStyle(Paint.Style.FILL);
-            canvas.drawRect(0, 0, 100, 100, paint);
-    	}
+//    	if(leftEdge)
+//    	{
+//            paint.setStyle(Paint.Style.FILL);
+//            canvas.drawRect(0, 0, 100, 100, paint);
+//    	}
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+    	if(callBaseClass)
+    	{
+    		super.onTouchEvent(event);
+    	}
+    	
     	if(!processOnTouchEvent)
     	{
     		return false;
     	}
-		super.onTouchEvent(event);
 
-    	boolean result = returnValue;
     	int action = event.getAction();
     	pressure = event.getPressure();   	
 
+    	boolean result = true;
 		switch (action) {
     	case MotionEvent.ACTION_DOWN:
     		downX = event.getX();
     		downY = event.getY();
+    		if (returnValueOnActionDown)
+    		{
+    			result = returnValueOnActionDown;
+    		}
     		break;
     	case MotionEvent.ACTION_MOVE:
     		downX = event.getX();
     		downY = event.getY();
-        	if (event.getEdgeFlags()==MotionEvent.EDGE_LEFT){ 
-    			leftEdge = true;
+    		if (returnValueOnActionMove)
+    		{
+    			result = returnValueOnActionMove;
     		}
+//        	if (event.getEdgeFlags()==MotionEvent.EDGE_LEFT){ 
+//    			leftEdge = true;
+//    		}
     		break;
     	case MotionEvent.ACTION_UP:
     		downX = -1;
     		downY = -1;
-    		leftEdge = false;
+    		if (returnValueOnActionUp)
+    		{
+    			result = returnValueOnActionUp;
+    		}
+//    		leftEdge = false;
     		break;
     	case MotionEvent.ACTION_OUTSIDE:
     		break;
@@ -85,6 +101,16 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 		return false;
 	}
 	
+	public void setCallBaseClass(boolean process)
+	{
+		callBaseClass = process;
+	}
+	
+	public boolean getCallBaseClass()
+	{
+		return callBaseClass;
+	}
+	
 	public void setHandleTouchEvent(boolean process)
 	{
 		processOnTouchEvent = process;
@@ -95,14 +121,34 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 		return processOnTouchEvent;
 	}
 	
-	public void setReturnValue(boolean value)
+	public void setReturnValueOnActionDown(boolean value)
 	{
-		returnValue = value;
+		returnValueOnActionDown = value;
 	}
 	
-	public boolean getReturnValue()
+	public boolean getReturnValueOnActionDown()
 	{
-		return returnValue;
+		return returnValueOnActionDown;
+	}
+	
+	public void setReturnValueOnActionMove(boolean value)
+	{
+		returnValueOnActionMove = value;
+	}
+	
+	public boolean getReturnValueOnActionMove()
+	{
+		return returnValueOnActionMove;
+	}
+	
+	public void setReturnValueOnActionUp(boolean value)
+	{
+		returnValueOnActionUp = value;
+	}
+	
+	public boolean getReturnValueOnActionUp()
+	{
+		return returnValueOnActionUp;
 	}
 	
 	public void setPressureAmplification(float value)
@@ -124,7 +170,10 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     private float downY = -1;
     private float pressure = 1;
     
-    private boolean leftEdge = false;
+//    private boolean leftEdge = false;
+    private boolean callBaseClass = true;
     private boolean processOnTouchEvent = true;
-    private boolean returnValue = true;
+    private boolean returnValueOnActionDown = true;
+    private boolean returnValueOnActionMove = true;
+    private boolean returnValueOnActionUp = true;
 }
