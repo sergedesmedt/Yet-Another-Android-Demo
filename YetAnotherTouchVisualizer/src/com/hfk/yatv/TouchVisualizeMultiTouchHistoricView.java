@@ -41,10 +41,10 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	            paint.setColor(Color.WHITE);
 	            //paint.setStyle(Paint.Style.FILL);
 	            //paint.setStyle(Paint.Style.STROKE);
-	            //if(event.pressure <= 0.001)
-	            //{
-	            //	paint.setColor(Color.RED);
-	            //}
+	            if(event.historical)
+	            {
+	            	paint.setColor(Color.RED);
+	            }
 	            //canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplificaton * event.pressure), paint);
 
 	            canvas.drawLine(previousEvent.x, previousEvent.y, event.x, event.y, paint);
@@ -91,7 +91,7 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 		        		moveEventData.x = event.getHistoricalX(i, j);
 		        		moveEventData.y = event.getHistoricalY(i, j);
 		        		moveEventData.pressure = event.getHistoricalPressure(i, j);
-		        		moveEventData.historical = 1;
+		        		moveEventData.historical = true;
 		        		
 		        		curPath.add(moveEventData);
 		    		}
@@ -107,7 +107,7 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	        		moveEventData.x = event.getX(i);
 	        		moveEventData.y = event.getY(i);
 	        		moveEventData.pressure = event.getPressure(i);
-	        		moveEventData.historical = 0;
+	        		moveEventData.historical = false;
 	        		
 	        		curPath.add(moveEventData);
 	    		}
@@ -149,6 +149,6 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     	public float x;
     	public float y;
     	public float pressure;
-    	public float historical;
+    	public boolean historical;
     }
 }

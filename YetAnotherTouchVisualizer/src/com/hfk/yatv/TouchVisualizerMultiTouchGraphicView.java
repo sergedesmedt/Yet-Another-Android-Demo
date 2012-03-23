@@ -9,8 +9,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class TouchVisualizerMultiTouchGraphicView extends View implements View.OnLongClickListener, View.OnClickListener {
 	
@@ -36,7 +38,7 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
             {
             	paint.setColor(Color.RED);
             }
-            canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplificaton * event.pressure), paint);
+            canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplification * event.pressure), paint);
     	}
     }
 
@@ -88,22 +90,101 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
+		Toast msg = Toast.makeText(TouchVisualizerMultiTouchGraphicView.this.getContext(), "onClick", Toast.LENGTH_SHORT);
+		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
+		msg.show();		
 	}
 
 	@Override
 	public boolean onLongClick(View v) {
-		return false;
+		Toast msg = Toast.makeText(TouchVisualizerMultiTouchGraphicView.this.getContext(), "onLongClick", Toast.LENGTH_SHORT);
+		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
+		msg.show();		
+		return handleOnLongClick;
+	}
+	
+	public void setCallBaseClass(boolean process)
+	{
+		callBaseClass = process;
+	}
+	
+	public boolean getCallBaseClass()
+	{
+		return callBaseClass;
+	}
+	
+	public void setHandleTouchEvent(boolean process)
+	{
+		processOnTouchEvent = process;
+	}
+	
+	public boolean getHandleTouchEvent()
+	{
+		return processOnTouchEvent;
+	}
+	
+	public void setReturnValueOnActionDown(boolean value)
+	{
+		returnValueOnActionDown = value;
+	}
+	
+	public boolean getReturnValueOnActionDown()
+	{
+		return returnValueOnActionDown;
+	}
+	
+	public void setReturnValueOnActionMove(boolean value)
+	{
+		returnValueOnActionMove = value;
+	}
+	
+	public boolean getReturnValueOnActionMove()
+	{
+		return returnValueOnActionMove;
+	}
+	
+	public void setReturnValueOnActionUp(boolean value)
+	{
+		returnValueOnActionUp = value;
+	}
+	
+	public boolean getReturnValueOnActionUp()
+	{
+		return returnValueOnActionUp;
+	}
+	
+	public void setPressureAmplification(float value)
+	{
+		pressureAmplification = value;
+	}
+	
+	public float getPressureAmplification()
+	{
+		return pressureAmplification;
+	}
+	
+	public void setHandleOnLongClick(boolean value)
+	{
+		handleOnLongClick = value;
+	}
+	
+	public boolean getHandleOnLongClick()
+	{
+		return handleOnLongClick;
 	}
     
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
     private float pressureRingOffset = (float) DefaultValues.PressureRingOffset;
-    private float pressureAmplificaton = (float) DefaultValues.PressureAmplificaton;
+    private float pressureAmplification = (float) DefaultValues.PressureAmplificaton;
     
     private Paint paint = new Paint();
     
+    private boolean callBaseClass = true;
     private boolean processOnTouchEvent = true;
+    private boolean returnValueOnActionDown = true;
+    private boolean returnValueOnActionMove = true;
+    private boolean returnValueOnActionUp = true;
+    private boolean handleOnLongClick = false;
     
     private Map<Integer, EventData> eventDataMap; 
     

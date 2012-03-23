@@ -10,9 +10,10 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 
 	public static final String PROCESS_CALL_BASECLASS = "PROCESS_CALL_BASECLASS";
 	public static final String PROCESS_TOUCHEVENT = "PROCESS_TOUCHEVENT";
-	public static final String PROCESS_RETURNVALUE_ONACTIONDOWN = "PROCESS_RETURNVALUE_ONACTIONDOWN";
-	public static final String PROCESS_RETURNVALUE_ONACTIONMOVE = "PROCESS_RETURNVALUE_ONACTIONMOVE";
-	public static final String PROCESS_RETURNVALUE_ONACTIONUP = "PROCESS_RETURNVALUE_ONACTIONUP";
+	public static final String RETURNVALUE_ONACTIONDOWN = "RETURNVALUE_ONACTIONDOWN";
+	public static final String RETURNVALUE_ONACTIONMOVE = "RETURNVALUE_ONACTIONMOVE";
+	public static final String RETURNVALUE_ONACTIONUP = "RETURNVALUE_ONACTIONUP";
+	public static final String RETURNVALUE_ONLONGCLICK= "RETURNVALUE_ONLONGCLICK";
 	public static final String VALUE_PRESSUREAMP = "VALUE_PRESSUREAMP";
 	
 	@Override
@@ -27,6 +28,7 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 		m_chkReturnValueOnActionDown = (CheckBox)findViewById(R.id.checkBoxReturnValueOnActionDown);
 		m_chkReturnValueOnActionMove = (CheckBox)findViewById(R.id.checkBoxReturnValueOnActionMove);
 		m_chkReturnValueOnActionUp = (CheckBox)findViewById(R.id.checkBoxReturnValueOnActionUp);
+		m_chkReturnValueOnLongClick = (CheckBox)findViewById(R.id.checkBoxReturnValueOnLongClick);
 		m_edtPressureAmplification = (EditText)findViewById(R.id.editPressureAmplification);
 		
         Bundle data = getIntent().getExtras();
@@ -37,14 +39,17 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
         	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT)) {
         		m_chkHandleTouchEvents.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT));
         	}
-        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONDOWN)) {
-        		m_chkReturnValueOnActionDown.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONDOWN));
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN)) {
+        		m_chkReturnValueOnActionDown.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN));
         	}
-        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONMOVE)) {
-        		m_chkReturnValueOnActionMove.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONMOVE));
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE)) {
+        		m_chkReturnValueOnActionMove.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE));
         	}
-        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONUP)) {
-        		m_chkReturnValueOnActionUp.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONUP));
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP)) {
+        		m_chkReturnValueOnActionUp.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP));
+        	}
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK)) {
+        		m_chkReturnValueOnLongClick.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK));
         	}
         	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP)) {
         		m_edtPressureAmplification.setText(Float.toString(data.getFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP)));
@@ -60,9 +65,10 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 	    Bundle b = new Bundle();
 	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS, m_chkCallBaseClass.isChecked());
 	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT, m_chkHandleTouchEvents.isChecked());
-	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONDOWN, m_chkReturnValueOnActionDown.isChecked());
-	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONMOVE, m_chkReturnValueOnActionMove.isChecked());
-	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONUP, m_chkReturnValueOnActionUp.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN, m_chkReturnValueOnActionDown.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE, m_chkReturnValueOnActionMove.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP, m_chkReturnValueOnActionUp.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK, m_chkReturnValueOnLongClick.isChecked());
 	    b.putFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP, Float.parseFloat(m_edtPressureAmplification.getText().toString()));
 
 	    result.putExtras(b);
@@ -77,5 +83,6 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 	private CheckBox m_chkReturnValueOnActionDown;
 	private CheckBox m_chkReturnValueOnActionMove;
 	private CheckBox m_chkReturnValueOnActionUp;
+	private CheckBox m_chkReturnValueOnLongClick;
 	private EditText m_edtPressureAmplification;
 }

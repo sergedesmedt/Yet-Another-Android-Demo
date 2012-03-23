@@ -9,6 +9,7 @@
     <CheckBox android:text="True on ACTION_DOWN" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxReturnValueOnActionDown" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
     <CheckBox android:text="True on ACTION_MOVE" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxReturnValueOnActionMove" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
     <CheckBox android:text="True on ACTION_UP" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxReturnValueOnActionUp" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="True on onLongClick" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxReturnValueOnLongClick" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
     <TextView android:text="Pressure amplification" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content"></TextView>
     <EditText android:id="@+id/editPressureAmplification" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"></EditText>    
 </LinearLayout>

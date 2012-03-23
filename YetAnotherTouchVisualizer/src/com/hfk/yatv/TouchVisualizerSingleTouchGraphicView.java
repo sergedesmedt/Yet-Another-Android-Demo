@@ -7,8 +7,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 public class TouchVisualizerSingleTouchGraphicView extends View implements View.OnLongClickListener, View.OnClickListener {
 	
@@ -28,7 +30,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
             paint.setStyle(Paint.Style.FILL);
             canvas.drawCircle(downX, downY, touchCircleRadius, paint);
             paint.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplificaton * pressure), paint);
+            canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplification * pressure), paint);
     	}
     	
 //    	if(leftEdge)
@@ -92,13 +94,17 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
+		Toast msg = Toast.makeText(TouchVisualizerSingleTouchGraphicView.this.getContext(), "onClick", Toast.LENGTH_SHORT);
+		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
+		msg.show();		
 	}
 
 	@Override
 	public boolean onLongClick(View v) {
-		return false;
+		Toast msg = Toast.makeText(TouchVisualizerSingleTouchGraphicView.this.getContext(), "onLongClick", Toast.LENGTH_SHORT);
+		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
+		msg.show();		
+		return returnValueOnLongClick;
 	}
 	
 	public void setCallBaseClass(boolean process)
@@ -153,19 +159,30 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 	
 	public void setPressureAmplification(float value)
 	{
-		pressure = value;
+		pressureAmplification = value;
 	}
 	
 	public float getPressureAmplification()
 	{
-		return pressure;
+		return pressureAmplification;
+	}
+	
+	public void setReturnValueOnLongClick(boolean value)
+	{
+		returnValueOnLongClick = value;
+	}
+	
+	public boolean getReturnValueOnLongClick()
+	{
+		return returnValueOnLongClick;
 	}
    
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
     private float pressureRingOffset = (float) DefaultValues.PressureRingOffset;
-    private float pressureAmplificaton = (float) DefaultValues.PressureAmplificaton;
+    private float pressureAmplification = (float) DefaultValues.PressureAmplificaton;
     
     private Paint paint = new Paint();
+
     private float downX = -1;
     private float downY = -1;
     private float pressure = 1;
@@ -176,4 +193,5 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     private boolean returnValueOnActionDown = true;
     private boolean returnValueOnActionMove = true;
     private boolean returnValueOnActionUp = true;
+    private boolean returnValueOnLongClick = false;
 }

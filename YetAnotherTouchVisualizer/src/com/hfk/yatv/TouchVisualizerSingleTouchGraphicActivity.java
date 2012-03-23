@@ -21,7 +21,7 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.single_graphic_config, menu);
+	    inflater.inflate(R.menu.graphic_config, menu);
 	    return true;
 	}
 	
@@ -29,7 +29,6 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 		int menuItem = item.getItemId();
-		int menuSingleGraphicConfigId = R.id.mnu_single_graphic_config;
 	    switch (menuItem) {
 	        case R.id.mnu_single_graphic_config:
 	    		Intent myIntent = new Intent(TouchVisualizerSingleTouchGraphicActivity.this, TouchVisualizerTouchGraphicConfigActivity.class);
@@ -37,9 +36,10 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
 	    		Bundle b = new Bundle();
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS, vw.getCallBaseClass());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT, vw.getHandleTouchEvent());
-	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONDOWN, vw.getReturnValueOnActionDown());
-	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONMOVE, vw.getReturnValueOnActionMove());
-	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONUP, vw.getReturnValueOnActionUp());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN, vw.getReturnValueOnActionDown());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE, vw.getReturnValueOnActionMove());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP, vw.getReturnValueOnActionUp());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK, vw.getReturnValueOnLongClick());
 	    	    b.putFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP, vw.getPressureAmplification());
 
 	    	    myIntent.putExtras(b);
@@ -57,9 +57,10 @@ public class TouchVisualizerSingleTouchGraphicActivity extends Activity {
     	
     	vw.setCallBaseClass(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS));
     	vw.setHandleTouchEvent(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT));
-    	vw.setReturnValueOnActionDown(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONDOWN));
-    	vw.setReturnValueOnActionMove(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONMOVE));
-    	vw.setReturnValueOnActionUp(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_RETURNVALUE_ONACTIONUP));
+    	vw.setReturnValueOnActionDown(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN));
+    	vw.setReturnValueOnActionMove(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE));
+    	vw.setReturnValueOnActionUp(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP));
+    	vw.setReturnValueOnLongClick(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK));
     	vw.setPressureAmplification(config.getFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP));
 
     }
