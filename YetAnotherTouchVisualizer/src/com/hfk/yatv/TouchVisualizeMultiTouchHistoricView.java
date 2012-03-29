@@ -39,13 +39,10 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	    			continue;
 	    		}
 	            paint.setColor(Color.WHITE);
-	            //paint.setStyle(Paint.Style.FILL);
-	            //paint.setStyle(Paint.Style.STROKE);
 	            if(event.historical)
 	            {
 	            	paint.setColor(Color.RED);
 	            }
-	            //canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplificaton * event.pressure), paint);
 
 	            canvas.drawLine(previousEvent.x, previousEvent.y, event.x, event.y, paint);
 	            
@@ -56,12 +53,12 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	if(!processOnTouchEvent)
+    	if(!handleOnTouchEvent)
     	{
     		super.onTouchEvent(event);
     	}
 
-    	boolean result = processOnTouchEvent;
+    	boolean result = handleOnTouchEvent;
     	int action = event.getActionMasked();
   	
     	int pointerIndex = event.getActionIndex();
@@ -134,6 +131,16 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	public boolean onLongClick(View v) {
 		return false;
 	}
+	
+	public void setHandleHistoricEvent(boolean process)
+	{
+		handleHistoricEvent = process;
+	}
+	
+	public boolean getHandleHistoricEvent()
+	{
+		return handleHistoricEvent;
+	}
     
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
     private float pressureRingOffset = (float) DefaultValues.PressureRingOffset;
@@ -141,9 +148,12 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     
     private Paint paint = new Paint();
     
-    private boolean processOnTouchEvent = true;
+    private boolean handleOnTouchEvent = true;
+    private boolean handleHistoricEvent = true;
     
     private Map<Integer, List<EventData>> eventDataMap; 
+    
+    
     
     private class EventData{
     	public float x;

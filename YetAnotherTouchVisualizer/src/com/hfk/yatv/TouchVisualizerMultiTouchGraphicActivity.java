@@ -34,8 +34,8 @@ public class TouchVisualizerMultiTouchGraphicActivity extends Activity {
 	    		Intent myIntent = new Intent(TouchVisualizerMultiTouchGraphicActivity.this, TouchVisualizerTouchGraphicConfigActivity.class);
 	    	    
 	    		Bundle b = new Bundle();
-	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS, vw.getCallBaseClass());
-	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT, vw.getHandleTouchEvent());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.CALL_BASECLASS, vw.getCallBaseClass());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.HANDLE_TOUCHEVENT, vw.getHandleTouchEvent());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN, vw.getReturnValueOnActionDown());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE, vw.getReturnValueOnActionMove());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP, vw.getReturnValueOnActionUp());
@@ -54,8 +54,8 @@ public class TouchVisualizerMultiTouchGraphicActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent){
     	Bundle config = intent.getExtras();
     	
-    	vw.setCallBaseClass(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS));
-    	vw.setHandleTouchEvent(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT));
+    	vw.setCallBaseClass(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.CALL_BASECLASS));
+    	vw.setHandleTouchEvent(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.HANDLE_TOUCHEVENT));
     	vw.setReturnValueOnActionDown(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN));
     	vw.setReturnValueOnActionMove(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE));
     	vw.setReturnValueOnActionUp(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP));

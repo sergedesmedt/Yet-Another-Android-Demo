@@ -8,8 +8,8 @@ import android.widget.EditText;
 
 public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 
-	public static final String PROCESS_CALL_BASECLASS = "PROCESS_CALL_BASECLASS";
-	public static final String PROCESS_TOUCHEVENT = "PROCESS_TOUCHEVENT";
+	public static final String CALL_BASECLASS = "CALL_BASECLASS";
+	public static final String HANDLE_TOUCHEVENT = "HANDLE_TOUCHEVENT";
 	public static final String RETURNVALUE_ONACTIONDOWN = "RETURNVALUE_ONACTIONDOWN";
 	public static final String RETURNVALUE_ONACTIONMOVE = "RETURNVALUE_ONACTIONMOVE";
 	public static final String RETURNVALUE_ONACTIONUP = "RETURNVALUE_ONACTIONUP";
@@ -33,11 +33,11 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 		
         Bundle data = getIntent().getExtras();
         if(data != null){
-        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS)) {
-        		m_chkCallBaseClass.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS));
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.CALL_BASECLASS)) {
+        		m_chkCallBaseClass.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.CALL_BASECLASS));
         	}
-        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT)) {
-        		m_chkHandleTouchEvents.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT));
+        	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.HANDLE_TOUCHEVENT)) {
+        		m_chkHandleTouchEvents.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.HANDLE_TOUCHEVENT));
         	}
         	if(data.containsKey(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN)) {
         		m_chkReturnValueOnActionDown.setChecked(data.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN));
@@ -63,8 +63,8 @@ public class TouchVisualizerTouchGraphicConfigActivity extends Activity {
 	    Intent result = new Intent();
 
 	    Bundle b = new Bundle();
-	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_CALL_BASECLASS, m_chkCallBaseClass.isChecked());
-	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.PROCESS_TOUCHEVENT, m_chkHandleTouchEvents.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.CALL_BASECLASS, m_chkCallBaseClass.isChecked());
+	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.HANDLE_TOUCHEVENT, m_chkHandleTouchEvents.isChecked());
 	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN, m_chkReturnValueOnActionDown.isChecked());
 	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE, m_chkReturnValueOnActionMove.isChecked());
 	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP, m_chkReturnValueOnActionUp.isChecked());

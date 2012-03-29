@@ -47,7 +47,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     		super.onTouchEvent(event);
     	}
     	
-    	if(!processOnTouchEvent)
+    	if(!handleOnTouchEvent)
     	{
     		return false;
     	}
@@ -119,12 +119,12 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 	
 	public void setHandleTouchEvent(boolean process)
 	{
-		processOnTouchEvent = process;
+		handleOnTouchEvent = process;
 	}
 	
 	public boolean getHandleTouchEvent()
 	{
-		return processOnTouchEvent;
+		return handleOnTouchEvent;
 	}
 	
 	public void setReturnValueOnActionDown(boolean value)
@@ -189,7 +189,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     
 //    private boolean leftEdge = false;
     private boolean callBaseClass = true;
-    private boolean processOnTouchEvent = true;
+    private boolean handleOnTouchEvent = true;
     private boolean returnValueOnActionDown = true;
     private boolean returnValueOnActionMove = true;
     private boolean returnValueOnActionUp = true;
