@@ -76,23 +76,26 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     		eventDataMap.put(new Integer(pointerId), path);
     		break;
     	case MotionEvent.ACTION_MOVE:
-    		for(int j = 0; j < event.getHistorySize(); j++)
+    		if(handleHistoricEvent)
     		{
-	    		for(int i = 0; i < event.getPointerCount(); i++)
+	    		for(int j = 0; j < event.getHistorySize(); j++)
 	    		{
-	    			int curPointerId = event.getPointerId(i);
-		    		if(eventDataMap.containsKey(new Integer(curPointerId)))
+		    		for(int i = 0; i < event.getPointerCount(); i++)
 		    		{
-		    			List<EventData> curPath = eventDataMap.get(new Integer(curPointerId));
-		        		EventData moveEventData = new EventData();
-		        		moveEventData.x = event.getHistoricalX(i, j);
-		        		moveEventData.y = event.getHistoricalY(i, j);
-		        		moveEventData.pressure = event.getHistoricalPressure(i, j);
-		        		moveEventData.historical = true;
-		        		
-		        		curPath.add(moveEventData);
-		    		}
-				}
+		    			int curPointerId = event.getPointerId(i);
+			    		if(eventDataMap.containsKey(new Integer(curPointerId)))
+			    		{
+			    			List<EventData> curPath = eventDataMap.get(new Integer(curPointerId));
+			        		EventData moveEventData = new EventData();
+			        		moveEventData.x = event.getHistoricalX(i, j);
+			        		moveEventData.y = event.getHistoricalY(i, j);
+			        		moveEventData.pressure = event.getHistoricalPressure(i, j);
+			        		moveEventData.historical = true;
+			        		
+			        		curPath.add(moveEventData);
+			    		}
+					}
+	    		}
     		}
     		for(int i = 0; i < event.getPointerCount(); i++)
     		{

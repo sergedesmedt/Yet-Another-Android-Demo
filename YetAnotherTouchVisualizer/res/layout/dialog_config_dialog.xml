@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <CheckBox android:text="Register outsidetouch" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxRegisterForOutsideTouch" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Handle ACTION_OUTSIDE" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxHandleActionOutside" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+</LinearLayout>
