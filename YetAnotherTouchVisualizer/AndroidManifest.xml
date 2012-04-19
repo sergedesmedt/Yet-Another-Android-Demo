@@ -19,13 +19,13 @@
         </activity>
         <activity android:name=".TouchVisualizeMultiTouchHistoricActivity">
         </activity>
-        <activity android:name="TouchVisualizerSingleTouchDialogActivity">
+        <activity android:name=".TouchVisualizerSingleTouchDialogActivity">
         </activity>
-        <activity android:name="TouchVisualizerTouchGraphicConfigActivity">
+        <activity android:name=".TouchVisualizerTouchGraphicConfigActivity">
         </activity>
-        <activity android:name="TouchVisualizerTouchHistoricConfigActivity">
+        <activity android:name=".TouchVisualizerTouchHistoricConfigActivity">
         </activity>
-        <activity android:name="TouchVisualizerTouchDialogConfigActivity">
+        <activity android:name=".TouchVisualizerTouchDialogConfigActivity">
         </activity>
     </application>
 </manifest>

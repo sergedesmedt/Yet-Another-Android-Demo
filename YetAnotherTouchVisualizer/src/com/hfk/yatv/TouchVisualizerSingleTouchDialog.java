@@ -14,7 +14,10 @@ public class TouchVisualizerSingleTouchDialog extends Dialog {
     public TouchVisualizerSingleTouchDialog(Context context) {
         super(context);
         
-        if(((TouchVisualizerSingleTouchDialogActivity)context).getRegisterForOutsideTouch()) {
+        registerForOutsideTouch = ((TouchVisualizerSingleTouchDialogActivity)context).getRegisterForOutsideTouch();
+        handleActionOutside = ((TouchVisualizerSingleTouchDialogActivity)context).getHandleActionOutside();
+        		
+        if(registerForOutsideTouch) {
 	        Window window = this.getWindow(); 
 	        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
 	        window.setFlags(LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
@@ -25,37 +28,16 @@ public class TouchVisualizerSingleTouchDialog extends Dialog {
     }
     
     public boolean onTouchEvent(MotionEvent event)   { 
-    	if (((TouchVisualizerSingleTouchDialogActivity)this.getContext()).getHandleActionOutside()) {
+    	if (handleActionOutside) {
 	    	if(event.getAction() == MotionEvent.ACTION_OUTSIDE){                        
 	    		this.dismiss();          
 	    	}          
     	}
     	
-    	return false;   
-    	
+    	return false;     	
     }   
-	
-	public void setRegisterForOutsideTouch(boolean value)
-	{
-		registerForOutsideTouch = value;
-	}
-	
-	public boolean getRegisterForOutsideTouch()
-	{
-		return registerForOutsideTouch;
-	}
-	
-	public void setHandleActionOutside(boolean value)
-	{
-		handleActionOutside = value;
-	}
-	
-	public boolean getHandleActionOutside()
-	{
-		return handleActionOutside;
-	}
     
-    private boolean registerForOutsideTouch = true;
-    private boolean handleActionOutside = true;
+    private boolean registerForOutsideTouch = false;
+    private boolean handleActionOutside = false;
     
 }

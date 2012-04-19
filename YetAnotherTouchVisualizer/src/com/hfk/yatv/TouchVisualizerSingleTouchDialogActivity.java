@@ -23,7 +23,7 @@ public class TouchVisualizerSingleTouchDialogActivity extends Activity {
         		new Button.OnClickListener(){   
         			@Override  public void onClick(View arg0) 
         			{   
-        				// TODO Auto-generated method stub   
+        				removeDialog(CUSTOM_DIALOG_ID);
         				showDialog(CUSTOM_DIALOG_ID);  
         			}       
     			});
@@ -51,7 +51,6 @@ public class TouchVisualizerSingleTouchDialogActivity extends Activity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
 		int menuItem = item.getItemId();
 	    switch (menuItem) {
 	        case R.id.mnu_single_graphic_config:
