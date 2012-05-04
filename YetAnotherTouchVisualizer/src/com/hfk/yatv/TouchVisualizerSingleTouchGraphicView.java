@@ -30,7 +30,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
             paint.setStyle(Paint.Style.FILL);
             canvas.drawCircle(downX, downY, touchCircleRadius, paint);
             paint.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplification * pressure), paint);
+            canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressure), paint);
     	}
     	
 //    	if(leftEdge)
@@ -53,7 +53,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     	}
 
     	int action = event.getAction();
-    	pressure = event.getPressure();   	
+    	pressure = event.getPressure() * pressureAmplification;   	
 
     	boolean result = true;
 		switch (action) {

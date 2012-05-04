@@ -112,6 +112,17 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	        		curPath.add(moveEventData);
 	    		}
 			}
+    		
+    		if(pauseUIThread != 0)
+    		{
+	    		try {
+					Thread.sleep(pauseUIThread);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}    		
+    		
     		break;
     	case MotionEvent.ACTION_UP:
     	case MotionEvent.ACTION_POINTER_UP:
@@ -144,6 +155,16 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	{
 		return handleHistoricEvent;
 	}
+	
+	public void setPauseUIThread(int pauseInMilleseconds)
+	{
+		pauseUIThread = pauseInMilleseconds;
+	}
+	
+	public int getPauseUIThread()
+	{
+		return pauseUIThread;
+	}
     
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
     private float pressureRingOffset = (float) DefaultValues.PressureRingOffset;
@@ -154,9 +175,9 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     private boolean handleOnTouchEvent = true;
     private boolean handleHistoricEvent = true;
     
-    private Map<Integer, List<EventData>> eventDataMap; 
+    private int pauseUIThread = DefaultValues.PauseUIThread;
     
-    
+    private Map<Integer, List<EventData>> eventDataMap;    
     
     private class EventData{
     	public float x;

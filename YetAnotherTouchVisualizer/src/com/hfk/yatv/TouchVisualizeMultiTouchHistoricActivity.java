@@ -35,6 +35,7 @@ public class TouchVisualizeMultiTouchHistoricActivity extends Activity {
 	    	    
 	    		Bundle b = new Bundle();
 	    	    b.putBoolean(TouchVisualizerTouchHistoricConfigActivity.HANDLE_HISTORICEVENT, vw.getHandleHistoricEvent());
+	    	    b.putInt(TouchVisualizerTouchHistoricConfigActivity.PAUSEUITHREAD, vw.getPauseUIThread());
 
 	    	    myIntent.putExtras(b);
 
@@ -50,6 +51,7 @@ public class TouchVisualizeMultiTouchHistoricActivity extends Activity {
     	Bundle config = intent.getExtras();
     	
     	vw.setHandleHistoricEvent(config.getBoolean(TouchVisualizerTouchHistoricConfigActivity.HANDLE_HISTORICEVENT));
+    	vw.setPauseUIThread(config.getInt(TouchVisualizerTouchHistoricConfigActivity.PAUSEUITHREAD));
 
     }
 

@@ -38,31 +38,40 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
             {
             	paint.setColor(Color.RED);
             }
-            canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressureAmplification * event.pressure), paint);
+            canvas.drawCircle(event.x, event.y, touchCircleRadius + pressureRingOffset + (pressureRingOffset * event.pressure), paint);
     	}
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	if(!processOnTouchEvent)
+    	if(callBaseClass)
     	{
     		super.onTouchEvent(event);
     	}
+    	
+    	if(!handleOnTouchEvent)
+    	{
+    		return false;
+    	}
 
-    	boolean result = processOnTouchEvent;
     	int action = event.getActionMasked();
   	
     	int pointerIndex = event.getActionIndex();
     	int pointerId = event.getPointerId(pointerIndex);
 
+    	boolean result = true;
 		switch (action) {
     	case MotionEvent.ACTION_DOWN:
     	case MotionEvent.ACTION_POINTER_DOWN:
     		EventData eventData = new EventData();
     		eventData.x = event.getX(pointerIndex);
     		eventData.y = event.getY(pointerIndex);
-    		eventData.pressure = event.getPressure(pointerIndex);
+    		eventData.pressure = event.getPressure(pointerIndex) * pressureAmplification;
     		eventDataMap.put(new Integer(pointerId), eventData);
+    		if (returnValueOnActionDown)
+    		{
+    			result = returnValueOnActionDown;
+    		}
     		break;
     	case MotionEvent.ACTION_MOVE:
     		for(int i = 0; i < event.getPointerCount(); i++)
@@ -73,13 +82,21 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
 	        		EventData moveEventData = eventDataMap.get(new Integer(curPointerId));
 	        		moveEventData.x = event.getX(i);
 	        		moveEventData.y = event.getY(i);
-	        		moveEventData.pressure = event.getPressure(i);
+	        		moveEventData.pressure = event.getPressure(i) * pressureAmplification;
 	    		}
 			}
+    		if (returnValueOnActionMove)
+    		{
+    			result = returnValueOnActionMove;
+    		}
     		break;
     	case MotionEvent.ACTION_UP:
     	case MotionEvent.ACTION_POINTER_UP:
     		eventDataMap.remove(new Integer(pointerId));
+    		if (returnValueOnActionUp)
+    		{
+    			result = returnValueOnActionUp;
+    		}
     		break;
     	case MotionEvent.ACTION_OUTSIDE:
     		break;
@@ -115,12 +132,12 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
 	
 	public void setHandleTouchEvent(boolean process)
 	{
-		processOnTouchEvent = process;
+		handleOnTouchEvent = process;
 	}
 	
 	public boolean getHandleTouchEvent()
 	{
-		return processOnTouchEvent;
+		return handleOnTouchEvent;
 	}
 	
 	public void setReturnValueOnActionDown(boolean value)
@@ -180,7 +197,7 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
     private Paint paint = new Paint();
     
     private boolean callBaseClass = true;
-    private boolean processOnTouchEvent = true;
+    private boolean handleOnTouchEvent = true;
     private boolean returnValueOnActionDown = true;
     private boolean returnValueOnActionMove = true;
     private boolean returnValueOnActionUp = true;

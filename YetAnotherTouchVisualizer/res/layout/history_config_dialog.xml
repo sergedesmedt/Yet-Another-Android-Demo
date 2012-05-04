@@ -5,5 +5,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
     <CheckBox android:text="Handle historic events" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxHandleHistoricEvents" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <TextView android:text="Pause UI Thread" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textViewPauseUIThread" android:layout_height="wrap_content"></TextView>
+    <EditText android:id="@+id/editPauseUIThread" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="numberDecimal"></EditText>    
     
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.widget.EditText;
 public class TouchVisualizerTouchHistoricConfigActivity extends Activity {
 	
 	public static final String HANDLE_HISTORICEVENT = "HANDLE_HISTORICEVENT";
+	public static final String PAUSEUITHREAD = "PAUSEUITHREAD";
 
 	
 	@Override
@@ -19,11 +20,15 @@ public class TouchVisualizerTouchHistoricConfigActivity extends Activity {
 		setContentView(R.layout.history_config_dialog);
 
 		m_chkHandleHistoricEvents = (CheckBox)findViewById(R.id.checkBoxHandleHistoricEvents);
+		m_edtPauseUIThread = (EditText)findViewById(R.id.editPauseUIThread);
 		
         Bundle data = getIntent().getExtras();
         if(data != null){
         	if(data.containsKey(TouchVisualizerTouchHistoricConfigActivity.HANDLE_HISTORICEVENT)) {
         		m_chkHandleHistoricEvents.setChecked(data.getBoolean(TouchVisualizerTouchHistoricConfigActivity.HANDLE_HISTORICEVENT));
+        	}
+        	if(data.containsKey(TouchVisualizerTouchHistoricConfigActivity.PAUSEUITHREAD)) {
+        		m_edtPauseUIThread.setText(Integer.toString(data.getInt(TouchVisualizerTouchHistoricConfigActivity.PAUSEUITHREAD)));
         	}
         }
 		
@@ -35,6 +40,7 @@ public class TouchVisualizerTouchHistoricConfigActivity extends Activity {
 
 	    Bundle b = new Bundle();
 	    b.putBoolean(TouchVisualizerTouchHistoricConfigActivity.HANDLE_HISTORICEVENT, m_chkHandleHistoricEvents.isChecked());
+	    b.putInt(TouchVisualizerTouchHistoricConfigActivity.PAUSEUITHREAD, Integer.parseInt(m_edtPauseUIThread.getText().toString()));
 
 	    result.putExtras(b);
 
@@ -44,5 +50,6 @@ public class TouchVisualizerTouchHistoricConfigActivity extends Activity {
 	}
 
 	private CheckBox m_chkHandleHistoricEvents;
+	private EditText m_edtPauseUIThread;
 
 }
