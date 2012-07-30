@@ -27,7 +27,7 @@ public class TouchVisualizeMultiTouchHistoricActivity extends Activity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
+
 		int menuItem = item.getItemId();
 	    switch (menuItem) {
 	        case R.id.mnu_single_graphic_config:

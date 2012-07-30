@@ -12,16 +12,13 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class TouchVisualizeMultiTouchHistoricView extends View implements View.OnLongClickListener, View.OnClickListener {
+public class TouchVisualizeMultiTouchHistoricView extends View {
 	
     public TouchVisualizeMultiTouchHistoricView(Context context) {
         super(context);
         
         eventDataMap = new HashMap<Integer, List<EventData>>();
-        
-        this.setOnLongClickListener(this);
-        this.setOnClickListener(this);
-        
+       
     }
  
     @Override
@@ -53,12 +50,8 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	if(!handleOnTouchEvent)
-    	{
-    		super.onTouchEvent(event);
-    	}
+   		super.onTouchEvent(event);
 
-    	boolean result = handleOnTouchEvent;
     	int action = event.getActionMasked();
   	
     	int pointerIndex = event.getActionIndex();
@@ -118,7 +111,6 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
 	    		try {
 					Thread.sleep(pauseUIThread);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
     		}    		
@@ -132,19 +124,8 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     		break;
     	}
     	invalidate();
-    	return result;
+    	return true;
     }
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean onLongClick(View v) {
-		return false;
-	}
 	
 	public void setHandleHistoricEvent(boolean process)
 	{
@@ -172,7 +153,6 @@ public class TouchVisualizeMultiTouchHistoricView extends View implements View.O
     
     private Paint paint = new Paint();
     
-    private boolean handleOnTouchEvent = true;
     private boolean handleHistoricEvent = true;
     
     private int pauseUIThread = DefaultValues.PauseUIThread;

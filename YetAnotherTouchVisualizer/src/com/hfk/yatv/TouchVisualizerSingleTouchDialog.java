@@ -20,7 +20,7 @@ public class TouchVisualizerSingleTouchDialog extends Dialog {
         if(registerForOutsideTouch) {
 	        Window window = this.getWindow(); 
 	        window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-	        window.setFlags(LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
+	        window.setFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
         }
         
         this.setContentView(R.layout.custom_dialog);

@@ -31,7 +31,7 @@ public class TouchVisualizerSingleTouchDialogActivity extends Activity {
 	
 	@Override
 	protected Dialog onCreateDialog(int id) { 
-		// TODO Auto-generated method stub 
+
 		Dialog dialog = null;;    
 		switch(id) {    
 		case CUSTOM_DIALOG_ID:     

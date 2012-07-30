@@ -32,12 +32,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
             paint.setStyle(Paint.Style.STROKE);
             canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressure), paint);
     	}
-    	
-//    	if(leftEdge)
-//    	{
-//            paint.setStyle(Paint.Style.FILL);
-//            canvas.drawRect(0, 0, 100, 100, paint);
-//    	}
+
     }
 
     @Override
@@ -72,9 +67,6 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     		{
     			result = returnValueOnActionMove;
     		}
-//        	if (event.getEdgeFlags()==MotionEvent.EDGE_LEFT){ 
-//    			leftEdge = true;
-//    		}
     		break;
     	case MotionEvent.ACTION_UP:
     		downX = -1;
@@ -83,7 +75,6 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     		{
     			result = returnValueOnActionUp;
     		}
-//    		leftEdge = false;
     		break;
     	case MotionEvent.ACTION_OUTSIDE:
     		break;
@@ -187,7 +178,6 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     private float downY = -1;
     private float pressure = 1;
     
-//    private boolean leftEdge = false;
     private boolean callBaseClass = true;
     private boolean handleOnTouchEvent = true;
     private boolean returnValueOnActionDown = true;

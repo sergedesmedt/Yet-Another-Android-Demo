@@ -39,6 +39,7 @@ public class TouchVisualizerMultiTouchGraphicActivity extends Activity {
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN, vw.getReturnValueOnActionDown());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE, vw.getReturnValueOnActionMove());
 	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP, vw.getReturnValueOnActionUp());
+	    	    b.putBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK, vw.getReturnValueOnLongClick());
 	    	    b.putFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP, vw.getPressureAmplification());
 
 	    	    myIntent.putExtras(b);
@@ -59,6 +60,7 @@ public class TouchVisualizerMultiTouchGraphicActivity extends Activity {
     	vw.setReturnValueOnActionDown(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONDOWN));
     	vw.setReturnValueOnActionMove(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONMOVE));
     	vw.setReturnValueOnActionUp(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONACTIONUP));
+    	vw.setReturnValueOnLongClick(config.getBoolean(TouchVisualizerTouchGraphicConfigActivity.RETURNVALUE_ONLONGCLICK));
     	vw.setPressureAmplification(config.getFloat(TouchVisualizerTouchGraphicConfigActivity.VALUE_PRESSUREAMP));
 
     }

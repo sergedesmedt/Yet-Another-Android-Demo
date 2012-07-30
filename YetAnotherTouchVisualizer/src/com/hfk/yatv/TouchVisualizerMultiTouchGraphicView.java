@@ -117,7 +117,7 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
 		Toast msg = Toast.makeText(TouchVisualizerMultiTouchGraphicView.this.getContext(), "onLongClick", Toast.LENGTH_SHORT);
 		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
 		msg.show();		
-		return handleOnLongClick;
+		return returnValueOnLongClick;
 	}
 	
 	public void setCallBaseClass(boolean process)
@@ -180,14 +180,14 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
 		return pressureAmplification;
 	}
 	
-	public void setHandleOnLongClick(boolean value)
+	public void setReturnValueOnLongClick(boolean value)
 	{
-		handleOnLongClick = value;
+		returnValueOnLongClick = value;
 	}
 	
-	public boolean getHandleOnLongClick()
+	public boolean getReturnValueOnLongClick()
 	{
-		return handleOnLongClick;
+		return returnValueOnLongClick;
 	}
     
     private float touchCircleRadius = (float) DefaultValues.TouchCircleRadius;
@@ -201,7 +201,7 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
     private boolean returnValueOnActionDown = true;
     private boolean returnValueOnActionMove = true;
     private boolean returnValueOnActionUp = true;
-    private boolean handleOnLongClick = false;
+    private boolean returnValueOnLongClick = false;
     
     private Map<Integer, EventData> eventDataMap; 
     

@@ -10,15 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class YetAnotherTouchVisualizerActivity extends ListActivity {
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		// Create an array of Strings, that will be put to our ListActivity
 		Resources res = getResources();
 		String[] names = res.getStringArray(R.array.views_available);
-		// Create an ArrayAdapter, that will actually make the Strings above
-		// appear in the ListView
 		this.setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, names));
     }
