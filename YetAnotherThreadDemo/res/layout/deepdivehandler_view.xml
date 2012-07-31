@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    >
+	    <Button android:text="Start thread" android:id="@+id/buttonStartIt" 
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"></Button>
+	    <Button android:text="Take action" android:id="@+id/buttonDoIt" 
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"></Button>
+	    <Button android:text="Stop thread" android:id="@+id/buttonStopIt" 
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+    <!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button android:text="Act at" android:id="@+id/buttonDoItAt" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" android:layout_gravity="center"></Button>
+        <TimePicker android:id="@+id/timePickerAt" android:layout_width="wrap_content" android:layout_height="wrap_content"></TimePicker>
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button android:text="Act witin seconds" android:id="@+id/buttonDoItWithin" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" android:layout_gravity="center"></Button>
+        <EditText android:id="@+id/editTextWithin" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="number">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout> -->
+    <RelativeLayout android:id="@+id/relativeLayout1"
+            android:layout_height="fill_parent" 
+            android:layout_width="fill_parent">
+        <TextView  
+            android:id="@+id/textView"
+            android:text=""
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

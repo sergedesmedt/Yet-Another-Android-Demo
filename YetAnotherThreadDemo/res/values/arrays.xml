@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="views_available">
+        <item>Action On UIThread</item>
+        <item>Action On Thread</item>
+        <item>Action with Async</item>
+        <item>Blocking Action</item>
+        <item>NonBlocking Action</item>
+        <item>Deepdive into Handler</item>
+        <item>Deepdive into Async</item>
+    </string-array>
+</resources>

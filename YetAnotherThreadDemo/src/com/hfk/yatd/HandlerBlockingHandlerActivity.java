@@ -1,0 +1,49 @@
+package com.hfk.yatd;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class HandlerBlockingHandlerActivity extends Activity {
+	
+	// This handler will be associated with the UI thread, hence this long running 
+	//	operation will prevent the ui thread of processing any other messages posted
+	//	to its messagequeue
+	Handler handler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			try {
+				Thread.sleep(5000);
+			} catch (Exception e) {
+				Log.v("Error: ", e.toString());
+			}
+			textView.setText(textView.getText()+"Did you succeed?");			
+		}
+	};	
+		 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.text_view);
+		textView=(TextView)findViewById(R.id.textView);
+		
+        Button buttonDoIt = (Button)findViewById(R.id.buttonDoIt);       
+        buttonDoIt.setOnClickListener(
+        		new Button.OnClickListener(){   
+        			@Override  public void onClick(View arg0) 
+        			{   
+						// Send a custom message to the UI thread
+						// This will start the long running operation on the UI thread
+        				handler.sendMessage(handler.obtainMessage()); 
+        			}       
+    			});
+	}
+	
+	private TextView textView;
+	
+}
