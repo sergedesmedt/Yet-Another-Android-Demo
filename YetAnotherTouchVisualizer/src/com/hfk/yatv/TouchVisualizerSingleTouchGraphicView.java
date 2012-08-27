@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,9 +29,9 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     	if(downX > 0)
     	{
             paint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(downX, downY, touchCircleRadius, paint);
+            canvas.drawCircle(downX, downY, getScreenSize(touchCircleRadius), paint);
             paint.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(downX, downY, touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressure), paint);
+            canvas.drawCircle(downX, downY, getScreenSize(touchCircleRadius + pressureRingOffset + (pressureRingOffset * pressure)), paint);
     	}
 
     }
@@ -96,6 +97,19 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
 		msg.setGravity(Gravity.CENTER, msg.getXOffset() / 2, msg.getYOffset() / 2);
 		msg.show();		
 		return returnValueOnLongClick;
+	}
+	
+	public float getScreenSize(float lengthInMm)
+	{
+    	//Size_in_mm = Size_in_inches * 25.4;
+    	//Size_in_inches = Size_in_mm / 25.4;
+    	//Size_in_dp = Size_in_inches * 160;
+    	//Size_in_dp = (Size_in_mm / 25.4) * 160;
+    	//Size_in_inches = Size_in_dp / 160;    
+    	return TypedValue.applyDimension(
+    			TypedValue.COMPLEX_UNIT_DIP, 
+    			(float)(lengthInMm * 160 / 25.4), 
+    			getResources().getDisplayMetrics());
 	}
 	
 	public void setCallBaseClass(boolean process)
