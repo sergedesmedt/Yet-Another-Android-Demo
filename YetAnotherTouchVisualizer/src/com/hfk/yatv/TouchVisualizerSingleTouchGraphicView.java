@@ -51,7 +51,7 @@ public class TouchVisualizerSingleTouchGraphicView extends View implements View.
     	int action = event.getAction();
     	pressure = event.getPressure() * pressureAmplification;   	
 
-    	boolean result = true;
+    	boolean result = false;
 		switch (action) {
     	case MotionEvent.ACTION_DOWN:
     		downX = event.getX();

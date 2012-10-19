@@ -60,7 +60,7 @@ public class TouchVisualizerMultiTouchGraphicView extends View implements View.O
     	int pointerIndex = event.getActionIndex();
     	int pointerId = event.getPointerId(pointerIndex);
 
-    	boolean result = true;
+    	boolean result = false;
 		switch (action) {
     	case MotionEvent.ACTION_DOWN:
     	case MotionEvent.ACTION_POINTER_DOWN:
