@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="views_available">
+        <item>Drawable in code</item>
+        <item>Drawable in XML</item>
+        <item>Matrix Transformations</item>
+        <item>Camera Transformations</item>
+    </string-array>    
+    <string-array name="matrix_transformations_available">
+        <item>Rotate</item>
+        <item>Scale</item>
+        <item>Skew</item>
+        <item>Translate</item>
+    </string-array>    
+    <string-array name="camera_transformations_available">
+        <item>Translate</item>
+        <item>Rotate X</item>
+        <item>Rotate Y</item>
+        <item>Rotate Z</item>
+    </string-array>    
+</resources>

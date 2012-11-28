@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <CheckBox android:text="Draw rectangle" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLDrawRectangle" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Draw line" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLDrawLine" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Draw oval" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLDrawOval" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Draw ring" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLDrawRing" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Set bounds" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLSetBounds" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="As ShapeDrawable" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLAsShapeDrawable" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="As GradientDrawable" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInXMLAsGradientDrawable" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+</LinearLayout>
+

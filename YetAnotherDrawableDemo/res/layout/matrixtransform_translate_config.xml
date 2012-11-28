@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="Type" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+    <RadioGroup android:id="@+id/radioTranslateOrder" android:layout_width="wrap_content" android:layout_height="wrap_content" >
+	    <RadioButton android:text="Set" android:id="@+id/rbTranslateTypeSet" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+	    <RadioButton android:text="Pre" android:id="@+id/rbTranslateTypePre" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+	    <RadioButton android:text="Post" android:id="@+id/rbTranslateTypePost" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+    </RadioGroup>
+    <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="dX" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editDX" android:inputType="numberSigned">
+        <requestFocus></requestFocus>
+    </EditText>
+    <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:layout_height="wrap_content" android:text="dY" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editDY" android:inputType="numberSigned"></EditText>
+    
+</LinearLayout>

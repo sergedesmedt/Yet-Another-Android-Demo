@@ -13,6 +13,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CustomDrawableFromXMLActivity">
+        </activity>
+        <activity android:name="CustomDrawableFromXMLConfigActivity">
+        </activity>
+        <activity android:name=".CustomDrawableActivity">
+        </activity>
+        <activity android:name=".CustomDrawableConfigActivity">
+        </activity>
+        <activity android:name="CustomDrawableMatrixTransformationActivity">
+        </activity>
+        <activity android:name="CustomDrawableMatrixTransformationConfigActivity">
+        </activity>
+        <activity android:name="MatrixTransformationTypeSelectorActivity">
+        </activity>
+        <activity android:name="MatrixTransformationRotateConfigActivity">
+        </activity>
+        <activity android:name="MatrixTransformationScaleConfigActivity">
+        </activity>
+        <activity android:name="MatrixTransformationSkewConfigActivity">
+        </activity>
+        <activity android:name="MatrixTransformationTranslateConfigActivity">
+        </activity>
+        <activity android:name="CustomDrawableCameraTransformationActivity">
+        </activity>
+        <activity android:name="CustomDrawableCameraTransformationConfigActivity">
+        </activity>
+        <activity android:name="CameraTransformationTypeSelectorActivity">
+        </activity>
+        <activity android:name="CameraTransformationRotateXConfigActivity">
+        </activity>
+        <activity android:name="CameraTransformationRotateYConfigActivity">
+        </activity>
+        <activity android:name="CameraTransformationRotateZConfigActivity">
+        </activity>
+        <activity android:name="CameraTransformationTranslateConfigActivity">
+        </activity>
 
     </application>
 </manifest>

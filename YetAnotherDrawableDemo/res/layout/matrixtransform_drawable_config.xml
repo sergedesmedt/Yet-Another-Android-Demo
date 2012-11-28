@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <Button
+        android:id="@+id/addBtn"
+        android:text="Add New Transform"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addItems"/>
+    <CheckBox android:text="Translate to center" android:id="@+id/checkBoxTranslateToCenter" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Oval out transform" android:id="@+id/checkBoxOvalOutTransform" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:drawSelectorOnTop="false"
+    />
+</LinearLayout>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="Type" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+    <RadioGroup android:id="@+id/radioRotationOrder" android:layout_width="wrap_content" android:layout_height="wrap_content" >
+	    <RadioButton android:text="Set" android:id="@+id/rbRotateTypeSet" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+	    <RadioButton android:text="Pre" android:id="@+id/rbRotateTypePre" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+	    <RadioButton android:text="Post" android:id="@+id/rbRotateTypePost" android:layout_width="wrap_content" android:layout_height="wrap_content"></RadioButton>
+    </RadioGroup>
+    <TextView android:layout_width="wrap_content" android:id="@+id/textView2" android:layout_height="wrap_content" android:text="angle" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editAngle" android:inputType="numberSigned">
+        <requestFocus></requestFocus>
+    </EditText>
+   
+</LinearLayout>

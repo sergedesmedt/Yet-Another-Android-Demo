@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+    <CheckBox android:text="Draw rectangle" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInCodeDrawRectangle" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Draw oval" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInCodeDrawOval" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Draw arc" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInCodeDrawArc" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+    <CheckBox android:text="Set bounds" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/checkBoxInCodeSetBounds" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+</LinearLayout>
