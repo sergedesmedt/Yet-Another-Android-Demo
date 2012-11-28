@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="views_available">
-        <item>Drawable in code</item>
         <item>Drawable in XML</item>
+        <item>Drawable in code</item>
         <item>Matrix Transformations</item>
         <item>Camera Transformations</item>
     </string-array>    

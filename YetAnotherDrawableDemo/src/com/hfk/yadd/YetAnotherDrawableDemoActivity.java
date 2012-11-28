@@ -27,9 +27,9 @@ public class YetAnotherDrawableDemoActivity extends ListActivity {
 		
 		Intent myIntent = null;
 		if(position == 0)
-			myIntent = new Intent(YetAnotherDrawableDemoActivity.this, CustomDrawableActivity.class);
-		if(position == 1)
 			myIntent = new Intent(YetAnotherDrawableDemoActivity.this, CustomDrawableFromXMLActivity.class);
+		if(position == 1)
+			myIntent = new Intent(YetAnotherDrawableDemoActivity.this, CustomDrawableActivity.class);
 		if(position == 2)
 			myIntent = new Intent(YetAnotherDrawableDemoActivity.this, CustomDrawableMatrixTransformationActivity.class);
 		if(position == 3)
