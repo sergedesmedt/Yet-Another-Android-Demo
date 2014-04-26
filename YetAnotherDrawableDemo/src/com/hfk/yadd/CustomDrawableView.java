@@ -2,7 +2,6 @@ package com.hfk.yadd;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.ArcShape;
 import android.graphics.drawable.shapes.OvalShape;
@@ -23,6 +22,8 @@ public class CustomDrawableView extends View {
     }
 
     protected void onDraw(Canvas canvas) {
+    	rectangleDrawable.getPaint().setColor(0xff74AC23);
+    	ovalDrawable.getPaint().setColor(0xff74AC23);
     	arcDrawable.getPaint().setColor(0xff74AC23);
 
     	if(fSetBounds)
