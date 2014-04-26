@@ -14,7 +14,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LongRunningTaskOnUIThread" />
-        <activity android:name=".LongRunningTaskOnOtherThread" />
+        <activity android:name=".LongRunningTaskOnOwnThread" />
         <activity android:name=".HandlerBlockingHandlerActivity" />
         <activity android:name=".HandlerNonBlockingHandlerActivity" />
         <activity android:name=".LongRunningTaskWithHandler" />

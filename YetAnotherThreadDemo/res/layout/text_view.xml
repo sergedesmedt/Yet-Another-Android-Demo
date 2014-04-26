@@ -7,18 +7,48 @@
     <Button android:text="Button" android:id="@+id/buttonDoIt" 
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"></Button>
-	<RelativeLayout android:id="@+id/relativeLayout1"
-	        android:layout_height="fill_parent" 
-	        android:layout_width="fill_parent">
-	    <TextView  
-	        android:id="@+id/textView"
-	        android:text="After clicking the button, try the checkbox within next 5 seconds."
-	        android:layout_width="fill_parent" 
-	        android:layout_height="wrap_content"/>
-	    <CheckBox android:id="@+id/checkBox1" 
-	       android:text="CheckBox"
-           android:layout_width="wrap_content" 
-           android:layout_height="wrap_content" 
-	       android:layout_alignParentBottom="true"/>
-	</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="CheckBox" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="After clicking the button, try the checkbox within the task duration seconds." />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView"  >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Task duration (sec.)"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/editTextTaskDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 </LinearLayout>

@@ -6,11 +6,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 public class DeepDiveHandler extends Activity {
 	
@@ -62,8 +60,10 @@ public class DeepDiveHandler extends Activity {
 					}
 				};
 				
+				// you will not get past here until you call the looper's quit() method
 				Looper.loop();
 				
+				// this code only gets executed when the looper is stopped by calling it's quit() method
 				Message uiMsg = uiHandler.obtainMessage();
 				uiMsg.what = MessageAfterLooper;
 				uiHandler.sendMessage(uiMsg); 		
@@ -84,10 +84,10 @@ public class DeepDiveHandler extends Activity {
         		new Button.OnClickListener(){   
         			@Override  public void onClick(View arg0) 
         			{   
-        				
         				CreateThread();
         			}       
     			});
+        
         Button buttonDoIt = (Button)findViewById(R.id.buttonDoIt);       
         buttonDoIt.setOnClickListener(
         		new Button.OnClickListener(){   
@@ -98,6 +98,7 @@ public class DeepDiveHandler extends Activity {
         				threadHandler.sendMessage(showMsg); 
         			}       
     			});
+        
         Button buttonStopIt = (Button)findViewById(R.id.buttonStopIt);       
         buttonStopIt.setOnClickListener(
         		new Button.OnClickListener(){   

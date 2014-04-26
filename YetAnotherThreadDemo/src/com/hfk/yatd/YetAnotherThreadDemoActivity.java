@@ -1,6 +1,5 @@
 package com.hfk.yatd;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,11 +13,8 @@ public class YetAnotherThreadDemoActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		// Create an array of Strings, that will be put to our ListActivity
 		Resources res = getResources();
 		String[] names = res.getStringArray(R.array.views_available);
-		// Create an ArrayAdapter, that will actually make the Strings above
-		// appear in the ListView
 		this.setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, names));
     }
@@ -31,7 +27,7 @@ public class YetAnotherThreadDemoActivity extends ListActivity {
 		if(position == 0)
 			myIntent = new Intent(YetAnotherThreadDemoActivity.this, LongRunningTaskOnUIThread.class);
 		if(position == 1)
-			myIntent = new Intent(YetAnotherThreadDemoActivity.this, LongRunningTaskOnOtherThread.class);
+			myIntent = new Intent(YetAnotherThreadDemoActivity.this, LongRunningTaskOnOwnThread.class);
 		if(position == 2)
 			myIntent = new Intent(YetAnotherThreadDemoActivity.this, LongRunningTaskWithAsyncTask.class);
 		if(position == 3)
