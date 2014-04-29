@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -22,9 +23,17 @@ public class LongRunningTaskWithAsyncTask extends Activity {
 				} catch (Exception e) {
 					Log.v("Error: ", e.toString());
 				}
-				// By publishing your progress, Android calls the onProgressUdate method  
-				//	with the value provided
-				publishProgress(i);
+				if(feedBackInBackground)
+				{
+					// This is not allowed and will throw an exception.
+					textView.setText("Progress: " + i);
+				}
+				else
+				{
+					// By publishing your progress, Android calls the onProgressUdate method  
+					//	with the value provided
+					publishProgress(i);
+				}
 			}
 			
 			return i;
@@ -49,9 +58,11 @@ public class LongRunningTaskWithAsyncTask extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.text_view);
+		setContentView(R.layout.text_view_withcheckbox);
 		textView=(TextView)findViewById(R.id.textView);
 		//textView.setText("After clicking the button, try the checkbox within next " + cnt + " seconds.");
+		chkOnBackground = (CheckBox)findViewById(R.id.checkBoxConfig);
+		chkOnBackground.setText("Update in doInBackground");
 		editTextTaskDuration=(EditText)findViewById(R.id.editTextTaskDuration);
 		editTextTaskDuration.setText("" + cnt);
 		
@@ -60,6 +71,7 @@ public class LongRunningTaskWithAsyncTask extends Activity {
      		new Button.OnClickListener(){   
      			@Override  public void onClick(View arg0) 
      			{   
+     				feedBackInBackground = chkOnBackground.isChecked();
        				String taskDurationAsString = editTextTaskDuration.getText().toString();
     				cnt = Integer.parseInt(taskDurationAsString);
      				new LongRunningAsyncTask().execute("");
@@ -69,6 +81,8 @@ public class LongRunningTaskWithAsyncTask extends Activity {
 	}
 	
 	private TextView textView;
+	private CheckBox chkOnBackground;
 	private EditText editTextTaskDuration;
 	private int cnt = 5;
+	private boolean feedBackInBackground = false;
 }

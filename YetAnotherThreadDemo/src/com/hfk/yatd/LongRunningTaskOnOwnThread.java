@@ -54,6 +54,7 @@ public class LongRunningTaskOnOwnThread extends Activity {
 		textView=(TextView)findViewById(R.id.textView);
 		//textView.setText("After clicking the button, try the checkbox within next " + cnt + " seconds.");
 		chkOnHandler = (CheckBox)findViewById(R.id.checkBoxConfig);
+		chkOnHandler.setText("Update on custom thread");
 		editTextTaskDuration=(EditText)findViewById(R.id.editTextTaskDuration);
 		editTextTaskDuration.setText("" + cnt);
 		
